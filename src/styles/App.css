@@ -1,0 +1,141 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.todos {
+    width: 30rem;
+    /*padding: 5px;*/
+
+    border: #1a1a1a 1px solid;
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: minmax(2em, auto);
+    width: 1fr;
+    height: max-content;
+
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #DEF
+}
+
+.todo-edit {
+    display: grid;
+    grid-template-columns: 10% auto 8% 8%;
+    grid-template-rows: 2em;
+    width: 1fr;
+    height: max-content;
+
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #DEF
+}
+
+.todo p {
+    grid-column: 2 / 3;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    justify-self: start;
+    font-family: Hack, monospace;
+    /*font-size: 1.2rem;*/
+}
+
+.todo .check {
+    grid-column: 1 / 2;
+    align-self: center;
+}
+
+.todo-edit .check {
+    grid-column: 1 / 2;
+    align-self: center;
+}
+
+.todo .edit {
+    grid-column: 3 / 4;
+    height: 90%;
+    width: 2rem;
+    align-self: center;
+    justify-self: center;
+    padding: 2px;
+
+    background-color: #948c8d;
+    border-radius: 5px;
+}
+
+.todo .edit img {
+    width: 100%;
+    height: 100%;
+}
+
+.todo-edit .save{
+    padding: 2px;
+    width: 2rem;
+    background-color: #948c8d;
+    border-radius: 5px;
+    justify-self: center;
+}
+
+.todo-edit .save img{
+    width: 90%;
+    height: 90%;
+}
+
+.todo-edit .delete {
+    padding: 2px;
+    width: 2rem;
+    background-color: #948c8d;
+    border-radius: 5px;
+    justify-self: center;
+}
+
+.todo-edit .delete img{
+    width: 100%;
+    height: 100%;
+}
+
+.todo .completed {
+    text-decoration: line-through;
+    color: #ee4f89;
+}
+
+.todo .incomplete {
+    color: #4fd6ee;
+    text-align: left;
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    gap: 2px;
+    margin-bottom: 1em;
+    border: 1px solid #DEF;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.input-container .input {
+    padding: 1em;
+    border-radius: 10px;
+}
+
+
+.edit-todo {
+    padding: 0 5px;
+    border: 1px solid #DEF;
+    border-radius: 10px;
+}
+
+.input-container .addButton {
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: center;
+    padding: 5px;
+    height: 100%;
+}
