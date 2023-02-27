@@ -1,10 +1,15 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Input from './components/Input/input';
 import Todo from "./components/Todo/todo";
 
 import {EditTodo, TodoType} from "./components/Todo/types";
-import {addTodo, selectTodos} from "./store/slices/todosSlice";
-import todo from "./components/Todo/todo";
+import {
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    selectTodos,
+    updateTodo
+} from "./store/slices/todosSlice";
 import {useAppDispatch, useAppSelector} from "./hooks";
 
 import './styles/App.css'
@@ -14,26 +19,17 @@ function App() {
     const todos = useAppSelector(selectTodos);
 
     const handleEdit = ({id, text}: EditTodo) => {
-        /*const newTodos = todos.map((item) => {
-            if (item.id === id) {
-                item.text = text;
-            }
-            return item;
-        });*/
-        // setTodos(newTodos);
+        dispatch(updateTodo({
+            id,
+            text,
+        }));
     }
     const handleDelete = (id: number) => {
-        // const newTodos = todos.filter((item) => item.id !== id);
-        // setTodos(newTodos);
+        dispatch(deleteTodo(id));
     }
+
     const handleComplete = (id: number, ) => {
-        /*const newTodos = todos.map((item) => {
-            if (item.id === id) {
-                item.isCompleted = !item.isCompleted;
-            }
-            return item;
-        });*/
-        // setTodos(newTodos);
+        dispatch(completeTodo(id));
     }
 
     const addTodoToState = (text: string) => {
@@ -42,19 +38,8 @@ function App() {
             text: text,
             isCompleted: false,
         };
-
-        /*setTodos([
-            ...todos,
-            newTodo
-        ]);*/
-
         dispatch(addTodo(newTodo));
     }
-
-    useEffect(() => {
-        console.log(todo);
-    }, [todos])
-
 
     const listOfTodos = () => {
         console.log('todos list...', todos);
